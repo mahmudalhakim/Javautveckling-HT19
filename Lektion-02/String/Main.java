@@ -65,5 +65,13 @@ public class Main {
         // Lite om klassen Calendar
         String date = Calendar.getInstance().getTime().toString();
         System.out.println(date);
+
+        // Övning - Visa klockan
+        int last = date.lastIndexOf('C');
+        int first = date.indexOf(':') - 2;
+        System.out.println(date.substring(first,last));
+        
+        // eller allt i en och samma sats!
+        System.out.println(date.substring(date.indexOf(':') - 2, date.lastIndexOf('C')-1));
     }
 }
