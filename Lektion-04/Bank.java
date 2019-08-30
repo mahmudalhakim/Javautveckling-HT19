@@ -10,74 +10,98 @@ mycket kapitalet har växt efter varje år.
 
 */
 
-import javax.swing.JOptionPane;
 
+import javax.swing.*;
+
+/*
+
+Steg 1: Ange belopp (1000)
+
+Steg 2:
+2.1. Läs in år
+2.2. Läs in ränta (anges i procent)
+
+Steg 3: Beräkna kapitalet
+
+Steg 4: Visa en tabell i en dialogruta
+
+
+*/
 public class Bank {
-
     public static void main(String[] args) {
 
-        // Beloppet som ska sparas på bankkontot
-        int belopp = 1000; // eller double
+        System.out.println("Övning - Sidan 114");
 
+        // Steg 1 - Ange belopp
+        int belopp = 1000;
 
-        // Läsa in antal år
+        // Steg 2
+        // 2.1 Läs in år
         String input;
         int years;
-        while(true){
+
+        while (true) {
+
             input = JOptionPane.showInputDialog("Ange antal år");
-            if(input==null)
+            if (input == null)
                 System.exit(0);
-            try{
+
+            // Felhantering
+            try {
                 years = Integer.parseInt(input);
-                if(years == 0)
+                // Vid fel hoppar programmet till catch (rad 49)
+                if (years > 0) {
+                    break;  // avsluta while, hoppa till rad 53
+                } else {
                     System.out.println("År måste vara större än 0");
-                else if(years > 0)
-                    break;
+                }
+
             } catch (NumberFormatException e) {
-                System.out.println("Felaktig inmatning!");
+                System.out.println("Felaktig inmatning");
             }
-        }
 
-        // Läsa in räntesatsen
+        } // while
+
+        // 2.2 Läs in ränta
         double ranta;
-        while(true){
-            input = JOptionPane.showInputDialog("Ange räntesatsen t.ex. 2.5");
-            if(input == null)
+        while (true) {
+
+            input = JOptionPane.showInputDialog("Ange räntesats t.ex. 2.5");
+            if (input == null)
                 System.exit(0);
-            try{
+
+            // Felhantering
+            try {
                 ranta = Double.parseDouble(input);
-                if(ranta == 0)
-                    System.out.println("År måste vara större än 0");
-                else if(ranta > 0)
+                if (ranta > 0) {
                     break;
-            }catch (NumberFormatException e){
-                System.out.println("Felaktig inmatning!");
+                } else {
+                    System.out.println("Ränta måste vara större än 0");
+                }
+
+            } catch (NumberFormatException e) {
+                System.out.println("Felaktig inmatning");
+            } catch (Exception e) {
+                System.out.println("Okänt fel");
             }
+
+        } // while
+
+        // Steg 3: Beräkna kapitalet
+        double kapital = belopp;
+
+        String table = "";
+
+        for (int år = 1; år <= years; år++) {
+            kapital += kapital * ranta * 0.01;
+            System.out.println("År " + år + " Kapital: " + Math.round(kapital));
+            table += "År " + år + " Kapital: " + Math.round(kapital) + '\n';
         }
 
-        // Resultat lagras här
-        double resultat = belopp;
 
-        // En tabell som visar resultatet
-        String tabell = "";
+        JOptionPane.showMessageDialog(null, table);
 
-        // Skapa en tabell där man ser hur
-        // mycket kapitalet har växt efter varje år
-        for(int i=1 ; i<=years ; i++){
+    } // Metoden main
 
-            // Beräkna resultat varje år
-            resultat = resultat + resultat * 0.01 * ranta; //sidan 115
-            // Eller
-            // resultat +=  resultat * (ranta/100);
-            // resultat *= 1 + ranta/100;
 
-            // Skapa tabellen här
-            tabell += "År "+ i  + ": " + Math.round(resultat) + "\n" ;
-        }
-
-        // Visa tabellen
-        System.out.println(tabell);
-
-    }
-
-}
+} // Klassen Bank
