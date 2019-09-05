@@ -128,5 +128,39 @@ public class Arrayer {
         System.out.println(ar3[0]==ar4[0]); // true
         System.out.println(ar3[0]==ar4[1]); // false
 
+
+        // Test av metoden printArray (övning 1)
+        double[]doubleArray = {1,2,3,4,5,6,7,8,9,10};
+        printArray(doubleArray);
+
+        // Test av metoden medelArray (övning 2)
+        double medelVardet = medelArray(doubleArray);
+        System.out.println("Medelvärdet: "+ medelVardet);
+
     }
+
+
+     // Övning 1
+    // Skapa en metod som skriver ut komponenterna 
+    // i ett fält av typen double.
+
+    public static void printArray(double[]array){
+
+        for(double nummer : array){
+            System.out.println(nummer);
+        }
+    }
+
+    // Övning 2
+    // Skapa en metod som beräknar medelvärdet
+    // av komponenterna i ett fält.
+    public static double medelArray(double[]array){
+        double summa = 0;
+        for(double nummer : array){
+            summa += nummer;
+        }
+        return summa / array.length;
+    }
+
+
 }
