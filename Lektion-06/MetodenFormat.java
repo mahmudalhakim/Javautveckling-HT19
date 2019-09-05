@@ -21,9 +21,11 @@ public class MetodenFormat {
         System.out.println("*****************");
 
 
-
-
-
+        // Övning 9.6
+        // http://www.skansholm.com/javasteg/ovningar/kap9/ovn9-6.txt
+        int r = 2;
+        for (int n = 1; n <= 30; r *= 2, n++)
+            System.out.format("%2d%,25d\n", n, r);
 
 
     }
