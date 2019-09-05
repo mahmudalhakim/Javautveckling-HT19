@@ -7,13 +7,13 @@ public class Arrayer {
         // Arbeta med fält (arrayer)
 
         // Steg 1
-        // Skapa en fältvaiabel av typen int
+        // Skapa en fältvariabel av typen int
         int[] a;
 
-        // Skapa en fältvaiabel av typen double
+        // Skapa en fältvariabel av typen double
         double[] d;
 
-        // Skapa en fältvaiabel av typen String
+        // Skapa en fältvariabel av typen String
         String[] s;
 
         // Steg 2
@@ -100,12 +100,13 @@ public class Arrayer {
         // Jämförelse av två arrayer
         int[] ar1 = {1,5,6,0,2};
 /*
-        int[] ar11 = new int[5];
-        ar11[0] = 1;
-        ar11[1] = 5;
-        ar11[2] = 6;
-        ar11[3] = 0;
-        ar11[4] = 2;
+        Ovanstående sats är samma som allt nedan
+        int[] ar1 = new int[5];
+        ar1[0] = 1;
+        ar1[1] = 5;
+        ar1[2] = 6;
+        ar1[3] = 0;
+        ar1[4] = 2;
 */
 
         int[] ar2 = {1,2,3,4,5};
